@@ -5,6 +5,7 @@ import Login from '../pages/Login'
 import MainLayout from '../layouts/MainLayout'
 import StateManage from '../pages/StateManage'
 import LoginTest from '../pages/StateeManage'
+import Register from '../pages/Register'
 
 export default function AppRouter() {
     return (
@@ -14,6 +15,7 @@ export default function AppRouter() {
                 <Route path='/login-test' element={<LoginTest />}></Route>
                 <Route element={<MainLayout />}>
                     <Route path="/" element={<Homepage />}></Route>
+                    <Route path="/register" element={<Register />}></Route>
                 </Route>
 
                     <Route path="/" element={<Homepage />}></Route>
