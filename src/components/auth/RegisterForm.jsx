@@ -140,3 +140,124 @@ export default function RegisterForm() {
 // add another toast after mutate
 // success: you can login now
 // error:" please try again"
+
+
+
+// classwork
+// use toast to notify user for invalid input
+// email should be in @email.com
+// password and confirm password should be same
+// if any input is empty notify that input is empty
+// add another toast after mutate
+// success: you can login now
+// error: please try again
+
+// import React, { useState } from 'react'
+// import { useRegisterUser as useRegisterUserTan } from '../../hooks/useRegisterUserTan'
+// import { toast, ToastContainer } from 'react-toastify'
+// import 'react-toastify/dist/ReactToastify.css'
+
+// export default function RegisterForm() {
+//   const { mutate, data, error, isPending, isSuccess, isError } = useRegisterUserTan()
+
+//   // form state
+//   const [email, setEmail] = useState('')
+//   const [username, setUsername] = useState('')
+//   const [firstName, setFirstName] = useState('')
+//   const [lastName, setLastName] = useState('')
+//   const [password, setPassword] = useState('')
+//   const [confirmPassword, setConfirmPassword] = useState('')
+
+//   const handleSubmit = () => {
+//     // classwork: if any input is empty notify that input is empty
+//     if (!email || !username || !firstName || !lastName || !password || !confirmPassword) {
+//       toast.error('All fields are required')
+//       return
+//     }
+
+//     // classwork: email should be in @email.com
+//     if (!email.includes('@email.com')) {
+//       toast.warning('Email must be in @email.com format')
+//       return
+//     }
+
+//     // classwork: password and confirm password should be same
+//     if (password !== confirmPassword) {
+//       toast.error('Passwords do not match')
+//       return
+//     }
+
+//     const formData = {
+//       email,
+//       username,
+//       firstName,
+//       lastName,
+//       password,
+//     }
+
+//     // use toast to notify user for invalid input (already handled above)
+
+//     // mutation with toast
+//     mutate(formData, {
+//       onSuccess: (response) => {
+//         toast.success('Success: You can login now')
+//       },
+//       onError: (error) => {
+//         toast.error('Error: Please try again')
+//       },
+//     })
+//   }
+
+//   return (
+//     <div style={{ padding: '2rem' }}>
+//       <h2>Register Form</h2>
+
+//       <input
+//         type="email"
+//         placeholder="Email"
+//         value={email}
+//         onChange={e => setEmail(e.target.value)}
+//       /><br />
+
+//       <input
+//         type="text"
+//         placeholder="Username"
+//         value={username}
+//         onChange={e => setUsername(e.target.value)}
+//       /><br />
+
+//       <input
+//         type="text"
+//         placeholder="First Name"
+//         value={firstName}
+//         onChange={e => setFirstName(e.target.value)}
+//       /><br />
+
+//       <input
+//         type="text"
+//         placeholder="Last Name"
+//         value={lastName}
+//         onChange={e => setLastName(e.target.value)}
+//       /><br />
+
+//       <input
+//         type="password"
+//         placeholder="Password"
+//         value={password}
+//         onChange={e => setPassword(e.target.value)}
+//       /><br />
+
+//       <input
+//         type="password"
+//         placeholder="Confirm Password"
+//         value={confirmPassword}
+//         onChange={e => setConfirmPassword(e.target.value)}
+//       /><br />
+
+//       <button onClick={handleSubmit}>Register</button>
+
+//       {/* Toast notifications container */}
+//       <ToastContainer position="top-right" autoClose={3000} />
+//     </div>
+//   )
+// }
