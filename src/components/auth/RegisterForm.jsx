@@ -2,8 +2,13 @@ import React from 'react'
 
 import { useRegisterUser } from '../../hooks/useRegisterUser'
 
+import { useRegisterUser as useRegisterUserTan } from '../../hooks/useRegisterUserTan'
+
 export default function RegisterForm() {
-    const{register, isLoading,data,error} =useRegisterUser()
+    // const{register, isLoading,data,error} =useRegisterUser()
+
+    const {mutate,data, error, isPending, isSuccess, isError} =useRegisterUserTan()
+    //mutate is the funtion replaced for register ,rest are the states 
 
     const handleSubmit=async (e) =>{
         //static data
@@ -15,10 +20,24 @@ export default function RegisterForm() {
             password:"password"
         }
         //use the hook function
-        let response = await register(formData)
-        if(response){
-            //extra logic eg. navigations
-        }
+        // let response = await register(formData)
+
+        // if(response){
+        //     //extra logic eg. navigations
+        // }
+
+        //mutate(not async function)
+        mutate(formData, 
+            {
+                onSuccess:(response)=>{
+                    //success logic (eg: navigations logics)
+                },
+                onError: (error) =>{
+                    //error logics
+                }
+            }
+        )
+
     }
   return (
     <div>RegisterForm
@@ -111,3 +130,13 @@ export default function RegisterForm() {
 //     </div>
 //   );
 // }
+
+
+//claswork
+// use toast to notify user for invalid input
+// email should be in @email.com
+// password and confirm password should be same
+// if any input is empty notify that input is empty
+// add another toast after mutate
+// success: you can login now
+// error:" please try again"
