@@ -16,6 +16,7 @@ export default function AppRouter() {
                 <Route element={<MainLayout />}>
                     <Route path="/" element={<Homepage />}></Route>
                     <Route path="/register" element={<Register />}></Route>
+                    <Route path="/login" element={<Login />}></Route>
                 </Route>
 
                     <Route path="/" element={<Homepage />}></Route>
