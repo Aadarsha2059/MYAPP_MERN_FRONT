@@ -261,3 +261,106 @@ export default function RegisterForm() {
 //     </div>
 //   )
 // }
+
+
+//convert all the input to formik
+
+// import { useFormik } from 'formik';
+// import * as Yup from 'yup';
+// import { useRegisterUser } from '../../hooks/useRegisterUser';
+
+// export default function RegisterForm() {
+//   const { mutate, data, error, isPending } = useRegisterUser();
+
+//   const validationSchema = Yup.object({
+//     email: Yup.string().email('Invalid email').required('Please fill email'),
+//     password: Yup.string().min(8, 'Password needs 8 characters').required('Please fill the password'),
+//     username: Yup.string().required('Required username'),
+//     firstName: Yup.string().required('Enter valid firstname'),
+//     lastName: Yup.string().required('Enter valid lastname'),
+//   });
+
+//   const formik = useFormik({
+//     initialValues: {
+//       email: '',
+//       password: '',
+//       username: '',
+//       firstName: '',
+//       lastName: '',
+//     },
+//     validationSchema,
+//     onSubmit: (values) => {
+//       mutate(values);
+//     },
+//   });
+
+//   return (
+//     <div>
+//       <h2>Register Form</h2>
+//       <form onSubmit={formik.handleSubmit}>
+//         {/* Email */}
+//         <label>Email</label>
+//         <input
+//           type="email"
+//           name="email"
+//           onChange={formik.handleChange}
+//           onBlur={formik.handleBlur}
+//           value={formik.values.email}
+//         />
+//         {formik.touched.email && formik.errors.email && <p>{formik.errors.email}</p>}
+
+//         {/* Password */}
+//         <label>Password</label>
+//         <input
+//           type="password"
+//           name="password"
+//           onChange={formik.handleChange}
+//           onBlur={formik.handleBlur}
+//           value={formik.values.password}
+//         />
+//         {formik.touched.password && formik.errors.password && <p>{formik.errors.password}</p>}
+
+//         {/* Username */}
+//         <label>Username</label>
+//         <input
+//           type="text"
+//           name="username"
+//           onChange={formik.handleChange}
+//           onBlur={formik.handleBlur}
+//           value={formik.values.username}
+//         />
+//         {formik.touched.username && formik.errors.username && <p>{formik.errors.username}</p>}
+
+//         {/* First Name */}
+//         <label>First Name</label>
+//         <input
+//           type="text"
+//           name="firstName"
+//           onChange={formik.handleChange}
+//           onBlur={formik.handleBlur}
+//           value={formik.values.firstName}
+//         />
+//         {formik.touched.firstName && formik.errors.firstName && <p>{formik.errors.firstName}</p>}
+
+//         {/* Last Name */}
+//         <label>Last Name</label>
+//         <input
+//           type="text"
+//           name="lastName"
+//           onChange={formik.handleChange}
+//           onBlur={formik.handleBlur}
+//           value={formik.values.lastName}
+//         />
+//         {formik.touched.lastName && formik.errors.lastName && <p>{formik.errors.lastName}</p>}
+
+//         {/* Submit Button */}
+//         <button type="submit" disabled={isPending}>
+//           {isPending ? 'Registering...' : 'Register'}
+//         </button>
+
+//         {/* API Error */}
+//         {error && <p style={{ color: 'red' }}>{error.message}</p>}
+//       </form>
+//     </div>
+//   );
+// }

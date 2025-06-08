@@ -3,12 +3,19 @@ import { loginUserService } from "../services/authService"
 
 import { toast } from "react-toastify";
 
+import { useContext } from "react";
+
+import { AuthContext } from "../auth/AuthProvider";
+
 export const useLoginUser =() =>{
+    const {login}=useContext(AuthContext)
+
     return useMutation(
         {
             mutationFn:loginUserService,
             mutationKey: ["login_key"],
-            onSuccess: (data) =>{
+            onSuccess: (data) =>{ //data-> body
+                login(data?.data, data?.token)
                 toast.success(data?.message || "login success")
             },
             onError: (err) =>{

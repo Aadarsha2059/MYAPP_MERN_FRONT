@@ -9,6 +9,7 @@ export default function Login() {
         event.preventDefault()
         navigate("/")
     }
+    // if user is logged in, show "your are already logged in"
     
     return (
         <div>
