@@ -5,6 +5,8 @@ export default function ProductTable() {
     const {data, error, isPending}=useAdminProduct()
 
     if(error) return <>{error.message}</>
+    if(isPending) return <>Loading....</>
+    
   
     
   return (
@@ -12,12 +14,12 @@ export default function ProductTable() {
         {data.message} {data.success}
         {
             data.data && data.data.map(
-                (row) =>{
+                (row) =>
                     <>
                     <p>{row.name}</p>
                     <p>{row.price}</p>
                     </>
-                }
+                
             )
         }
     </div>
