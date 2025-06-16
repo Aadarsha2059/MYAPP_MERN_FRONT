@@ -10,6 +10,7 @@ import GuestRouter from './GuestRouter';
 import NormalUserRoute from './NormalUserRoute';
 import ProductManagement from '../pages/admin/ProductManagement';
 import AdminLayout from '../layouts/AdminLayout';
+import CreateCategory from '../pages/admin/CreateCategory';
 
 export default function AppRouter() {
     return (
@@ -40,9 +41,9 @@ export default function AppRouter() {
                 <Route element={<AdminLayout />}>
                     <Route path="/admin/*">
                         <Route path="product" element={<ProductManagement />} />
-                        {/* You can add more like below */}
-                        {/* <Route path="dashboard" element={<AdminDashboard />} />
-                        <Route path="users" element={<AdminUsers />} /> */}
+                          <Route path="category/create" element={<CreateCategory />} />
+
+                       
                     </Route>
                 </Route>
             </Routes>
