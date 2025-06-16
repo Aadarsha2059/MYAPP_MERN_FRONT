@@ -11,6 +11,7 @@ import NormalUserRoute from './NormalUserRoute';
 import ProductManagement from '../pages/admin/ProductManagement';
 import AdminLayout from '../layouts/AdminLayout';
 import CreateCategory from '../pages/admin/CreateCategory';
+import CategoryManagement from '../pages/admin/CategoryManagement';
 
 export default function AppRouter() {
     return (
@@ -41,7 +42,8 @@ export default function AppRouter() {
                 <Route element={<AdminLayout />}>
                     <Route path="/admin/*">
                         <Route path="product" element={<ProductManagement />} />
-                          <Route path="category/create" element={<CreateCategory />} />
+                        <Route path="category/create" element={<CreateCategory />} />
+                        <Route path="category" element={<CategoryManagement />} />
 
                        
                     </Route>
