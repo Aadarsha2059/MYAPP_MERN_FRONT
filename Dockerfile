@@ -20,3 +20,7 @@ EXPOSE 80
 
 CMD ["nginx","g","daemon off;"]
 
+# docker build -t frontend-app .
+# docker run -d -p 3009:80 --name frontend frontend-app
+#docker logs CONTAINERID
+
